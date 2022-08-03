@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pos Inventory System">
+    <title>Sign up</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/functions.js" defer></script>
+</head>
+<body>
+    <section class="min-height-full w-full">
+       <form class="w-3/4 mx-auto p-4 mt-4" method="post" action="user-add-account.php" enctype="multipart/form-data">
+            <h1 class="uppercase bold font-bold text-2xl link">user sign-up</h1>
+            <div class="flex">
+                <div class="w-1/4 mt-4">
+                    <div class="grid place-items-center overflow-y-hidden bg-white">
+                        <img id="user-signup-profile" class="border-show w-full object-contain h-72" src="img/no-profile.png" accept="img/*" alt="no image" width="400" height="400" name="image">
+                    </div>
+                    <input id="user-signup-image" class="w-full mt-4" type="file" onchange="insertImage(this,'#user-signup-profile')" name="image">
+                </div>
+                <div class="w-3/4 flex justify-evenly flex-col">
+                    <div class="w-full flex justify-between items-center h-12">
+                        <label class="pl-4 text-2xl capitalize" for="user-fn">first name:</label>
+                        <input id="user-fn" class="border-show w-3/4 h-full rounded-lg p-4" type="text" name="first-name" required>
+                    </div>
+                    <div class="w-full flex justify-between items-center h-12">
+                        <label class="pl-4 text-2xl capitalize" for="user-ln">last name:</label>
+                        <input id="user-ln" class="border-show w-3/4 h-full rounded-lg p-4" type="text" name="last-name" required>
+                    </div>
+                    <div class="w-full flex justify-between items-center h-12">
+                        <label class="pl-4 text-2xl capitalize" for="user-e">email:</label>
+                        <input id="user-e" class="border-show w-3/4 h-full rounded-lg p-4" type="email" name="email" required>
+                    </div>
+                </div>
+            </div>
+            <div class="h-12 flex content-between mt-4">
+                <div class="h-full w-1/2 flex justify-between items-center pl-4">
+                    <label class=" text-2xl capitalize" for="user-signup-pwd">password:</label>
+                    <input id="user-signup-pwd" class="border-show rounded-lg h-full p-4 w-3/4" type="password" name="password" required>
+                </div>
+                <div class="h-full w-1/2 flex justify-between items-center pl-4">
+                    <label class="text-2xl capitalize" for="user-signup-retype-pwd">retype:</label>
+                    <input id="user-signup-retype-pwd" class="border-show rounded-lg h-full p-4 w-3/4" type="password" name="retype-password" required>
+                </div>
+            </div>
+            <div class="flex items-center mt-4 ml-4">
+                <input type="checkbox" id="user-c" onclick="showDoublePassword(this, '#user-signup-pwd','#user-signup-retype-pwd')">
+                <label class="capitalize pl-1" for="user-c">show password</label>
+            </div>
+            <div class="flex justify-between items-center h-12 mt-16">
+                <div class="flex h-full items-center w-1/2">
+                    <span class="text-2xl capitalize">gender:</span>
+                    <div class="ml-4">
+                        <input type="radio" id="user-m" name="gender" value="male" checked>
+                        <label class="text-2xl capitalize" for="user-m">male</label>
+                    </div>
+                    <div class="ml-4">
+                        <input type="radio" id="user-f" name="gender" value="female">
+                        <label class="text-2xl capitalize" for="user-f">female</label>
+                    </div>
+                </div>
+                <div class="h-full w-1/2 flex justify-between items-center pl-4">
+                    <label class="text-2xl capitalize" for="user-signup-number">number:</label>
+                    <input id="user-signup-number" class="border-show rounded-lg h-full p-4 w-3/4" type="tel" name="number">
+                </div>
+            </div>
+            <div class="h-36 flex mt-16">
+                <label class="text-2xl capitalize" for="user-signup-address">address:</label>
+                <textarea id="user-signup-address" class="border-show resize-none ml-4 rounded-lg w-full p-4" name="address"></textarea>
+            </div>
+            <div class="mt-32 text-end">
+                <input class="font-extrabold button1 border-show w-32 py-2 rounded-lg mr-4" type="button" value="Cancel" onclick="navigate('user-login.php')"> 
+                <input class="font-extrabold button1 border-show w-32 py-2 rounded-lg" type="submit" value="Submit" name="user-signup-submit">
+            </div>
+       </form>
+    </section>
+    <?php
+        include 'footer.php';
+    ?>
+</body>
+</html>
